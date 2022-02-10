@@ -1,8 +1,11 @@
 <template>
   <div class=" lists">
       <div class="container cs-cards pt-5 d-flex ">
+          <div class="text-center w-100" v-if='isLoaded'>
+              <h1>CARICAMENTO IN CORSO..</h1>
+          </div>
 
-      <CardArtist v-for='(artist, index) in artists' 
+      <CardArtist v-else v-for='(artist, index) in artists' 
       :key='index'
       :album='artist.title'
       :artist='artist.author'
@@ -22,12 +25,16 @@ export default {
     },
     data(){
         return{
+            isLoaded:false,
           artists:[],
         }
     },
     mounted(){
+        
+        this.isLoaded=true;
         axios.get('https://flynn.boolean.careers/exercises/api/array/music').then(res => {
             this.artists= res.data.response;
+            this.isLoaded=false;
         });
     },
 }
