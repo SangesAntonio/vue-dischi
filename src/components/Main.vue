@@ -1,12 +1,13 @@
 <template>
   <div class=" lists">
-      <div class="container pt-5">
+      <div class="container cs-cards pt-5 d-flex ">
 
       <CardArtist v-for='(artist, index) in artists' 
       :key='index'
       :album='artist.title'
       :artist='artist.author'
-      :year='artist.year'/>
+      :year='artist.year'
+      :image='artist.poster'/>
       </div>
   </div>
 </template>
@@ -32,11 +33,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang='scss'>
 .lists{
     width: 100%;
     height: 100vh;
-    background-color: rgba(37, 55, 104, 0.938);
+    background-color: rgba(20, 53, 141, 0.938);
+
+    .cs-cards{
+        flex-wrap: wrap;
+    }
+    
 }
 
 
