@@ -13,7 +13,6 @@
 export default {
     name: 'CardArtist',
     props:['album', 'artist', 'year', 'image'],
-
 }
 </script>
 
@@ -25,19 +24,14 @@ export default {
     .cs-container{
         height: 100%;
         background-color: rgba(67, 85, 134, 0.938);
-
         img{
             min-width: 90%;
             min-height: auto;
         }
-
         p{
             color: rgb(175, 172, 172);
         }
-        
     }
 
 }
-
-
 </style>
