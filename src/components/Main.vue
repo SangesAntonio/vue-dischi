@@ -7,7 +7,7 @@
 
       <CardArtist
         v-else
-        v-for="(artist, index) in artists"
+        v-for="(artist, index) in filteredArray"
         :key="index"
         :album="artist.title"
         :artist="artist.author"
@@ -25,7 +25,7 @@ export default {
   props: {
     artists: Array,
     isLoaded: { type: String, required: false },
-    selected: String,
+    filteredArray: Array,
   },
   components: {
     CardArtist,

@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Header :genres="genres" @getOption="getResult" />
-    <Main :artists="artists" :isLoaded="isLoaded" :resultGen="resultGen" />
+    <Main
+      :artists="artists"
+      :isLoaded="isLoaded"
+      :filteredArray="filteredArray"
+    />
   </div>
 </template>
 
@@ -48,9 +52,9 @@ export default {
     },
   },
   computed: {
-    filtredArray() {
+    filteredArray() {
       return this.artists.filter((artist) => {
-        if (artist.genre.includes(this.getResult)) {
+        if (artist.genre.includes(this.resultGen)) {
           return true;
         }
         return false;
